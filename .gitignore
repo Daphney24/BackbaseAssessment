@@ -1,0 +1,6 @@
+/node_modules
+/target
+/allure-results
+ProtractorTestReport.html
+xmlresults.xml
+.DS_Store
