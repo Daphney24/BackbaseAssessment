@@ -11,7 +11,7 @@
     "protractor-html-reporter-2": "^1.0.4"
   },
   "scripts": {
-    "test:e2e": "protractor conf/conf.js"
+    "test:e2e": "protractor e2e/conf/conf.js"
   },
   "author": "Daphney",
   "license": "ISC",
