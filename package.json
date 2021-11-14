@@ -1,7 +1,7 @@
 {
-  "name": "backbaseassessment",
+  "name": "BackbaseAssessment",
   "version": "1.0.0",
-  "description": "Assessment",
+  "description": "Backbase Assessment solution for Mobiquity",
   "main": "index.js",
   "dependencies": {
     "allure-commandline": "^2.13.8",
@@ -11,7 +11,7 @@
     "protractor-html-reporter-2": "^1.0.4"
   },
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test:e2e": "protractor conf/conf.js"
   },
   "author": "Daphney",
   "license": "ISC",
