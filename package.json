@@ -11,7 +11,8 @@
     "protractor-html-reporter-2": "^1.0.4"
   },
   "scripts": {
-    "test:e2e": "protractor e2e/conf/conf.js"
+    "test:e2e": "protractor e2e/conf/conf.js",
+    "posttest": "allure serve allure-results"
   },
   "author": "Daphney",
   "license": "ISC",

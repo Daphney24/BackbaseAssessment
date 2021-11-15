@@ -27,13 +27,13 @@ exports.config = {
         jasmine.getEnv().addReporter(reporter);
         var AllureReporter = require('jasmine-allure-reporter');
         jasmine.getEnv().addReporter(new AllureReporter({
-            resultsDir: 'allure-results'
+            resultsDir: './reports/allure-results'
         }));
 
         var jasmineReporters = require('jasmine-reporters');
         jasmine.getEnv().addReporter(new jasmineReporters.JUnitXmlReporter({
             consolidateAll: true,
-            savePath: './',
+            savePath: './reports',
             filePrefix: 'xmlresults'
         }));
 
@@ -80,7 +80,7 @@ exports.config = {
 
             testConfig = {
                 reportTitle: 'Protractor Test Execution Report',
-                outputPath: './',
+                outputPath: './reports',
                 outputFilename: 'ProtractorTestReport',
                 screenshotPath: './screenshots',
                 testBrowser: browserName,

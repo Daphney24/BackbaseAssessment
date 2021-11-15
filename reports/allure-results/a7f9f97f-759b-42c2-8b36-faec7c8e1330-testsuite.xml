@@ -1,0 +1,47 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1636979122516' stop='1636979136327'>
+    <name>Backbase Assessment</name>
+    <title>Backbase Assessment</title>
+    <test-cases>
+        <test-case start='1636979122517' status='passed' stop='1636979125139'>
+            <name>Create New Article</name>
+            <title>Create New Article</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1636979125139' status='passed' stop='1636979128179'>
+            <name>Update New Article</name>
+            <title>Update New Article</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1636979128179' status='passed' stop='1636979130763'>
+            <name>Mark Article as favourite</name>
+            <title>Mark Article as favourite</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1636979130763' status='passed' stop='1636979133660'>
+            <name>Add comments on Article</name>
+            <title>Add comments on Article</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+        <test-case start='1636979133660' status='passed' stop='1636979136326'>
+            <name>Delete Article</name>
+            <title>Delete Article</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>
