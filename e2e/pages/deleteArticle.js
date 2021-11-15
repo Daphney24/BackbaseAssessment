@@ -3,11 +3,13 @@ const {
     element
 } = require("protractor");
 const signinpage = require('../pages/signinpage.js');
+const updateNewArticle = require('../pages/updateNewArticle.js');
 
 let deleteArticle = function () {
 
     const title = '';
     const candidateName = '';
+    const latestArticleTitle = updateNewArticle.updatedTitle;
     let deleteArticleButtonWebElement = element(by.xpath('//button[contains(text(), "Delete Article")]'));
     let articleTitle = element(by.css('input[formcontrolname=title]'));
     const emailID = 'test24@gmail.com';
@@ -41,11 +43,11 @@ let deleteArticle = function () {
     };
 
     this.validateNewlyCreatedArticlePresent = function () {
-        const updatedArticleTitle = '';
-        const textTitle = element(by.xpath('//h1[contains(text(), "' + this.title + '")]')).getText();
-        textTitle.then(updatedArticleTitle => {
-            expect(updatedArticleTitle).toEqual(this.title);
-            console.log("Article is present with name: " + updatedArticleTitle);
+        var articleTitle;
+        var textTitle = element(by.xpath('//h1[starts-with(text(), "' + this.title + '")]')).getText();
+        textTitle.then(articleTitle => {
+            expect(articleTitle).toEqual(this.title);
+            console.log("Article is present with name: " + articleTitle);
         })
     };
 

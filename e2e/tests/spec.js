@@ -64,6 +64,7 @@ describe('Backbase Assessment', function () {
 
         updateNewArticle.setCandidateName(candidateName);
         updateNewArticle.setTitle('Testing Automation');
+        updateNewArticle.setArticleDetails(newArticleDetails);
 
         browser.sleep(1000);
         //TODO:Clicking on Candidate Profile
@@ -83,7 +84,9 @@ describe('Backbase Assessment', function () {
 
         browser.sleep(1000);
         //TODO: Update title of artcile and publish
-        updateNewArticle.updateArticleTitle();
+        updateNewArticle.updateArticleDetails();
+
+        //TODO: clikcing publish artcile button
         browser.sleep(1000);
         updateNewArticle.clickPublishArticleButton();
 
@@ -92,34 +95,6 @@ describe('Backbase Assessment', function () {
         updateNewArticle.validateSuccessfulUpdateArticle();
 
     });
-
-    it('Delete Article', function () {
-
-        console.log("Now on Delete Article")
-        browser.sleep(1000);
-
-        //deleteArticle.checkSignIn();
-        deleteArticle.setCandidateName(candidateName);
-        deleteArticle.setTitle('Testing Automation');
-
-        browser.sleep(1000);
-        //TODO:Clicking on Candidate Profile
-        deleteArticle.clickCandidateProfile();
-
-        browser.sleep(1000);
-        //TODO: Validate newly created artcile is present for update
-        deleteArticle.validateNewlyCreatedArticlePresent();
-
-        browser.sleep(1000);
-        //TODO: Open article to be updated
-        deleteArticle.openArticle();
-
-        browser.sleep(1000);
-        //TODO: Click on Edit Artcile button
-        deleteArticle.clickDeleteArticleButton();
-
-    });
-
 
     it('Mark Article as favourite', function () {
 
@@ -176,4 +151,34 @@ describe('Backbase Assessment', function () {
         addNewComment.validateSuccessfulAddComments();
 
     });
+
+    it('Delete Article', function () {
+
+        console.log("Now on Delete Article")
+        browser.sleep(1000);
+
+        //deleteArticle.checkSignIn();
+        deleteArticle.setCandidateName(candidateName);
+        deleteArticle.setTitle('Testing Automation');
+
+        browser.sleep(1000);
+        //TODO:Clicking on Candidate Profile
+        deleteArticle.clickCandidateProfile();
+
+        browser.sleep(1000);
+        //TODO: Validate newly created artcile is present for update
+        deleteArticle.validateNewlyCreatedArticlePresent();
+
+        browser.sleep(1000);
+        //TODO: Open article to be updated
+        deleteArticle.openArticle();
+
+        browser.sleep(1000);
+        //TODO: Click on Edit Artcile button
+        deleteArticle.clickDeleteArticleButton();
+
+    });
+
+
+    
 });

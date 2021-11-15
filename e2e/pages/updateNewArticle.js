@@ -8,13 +8,16 @@ let updateNewArticle = function () {
 
     const title = '';
     const candidateName = '';
+    const articleDetails = '';
     let editArticleButtonWebElement = element(by.xpath('//a[contains(text(), "Edit Article")]'));
     let articleTitle = element(by.css('input[formcontrolname=title]'));
+    let artcileDetailsWebElement = element(by.xpath('//textarea[@placeholder="Write your article (in markdown)"]'));
     let clickPublishArticleButton = element(by.xpath('//button[normalize-space()="Publish Article"]'));
     const emailID = 'test24@gmail.com';
     const password = 'test24';
     const click = element(by.css('button[type="submit"]'));
     const signinWebElement = element(by.xpath('//a[contains(text(),"Sign in")]'));
+    var updatedArticleDetailsText;
 
     this.setCandidateName = function (candidateName) {
         this.candidateName = candidateName;
@@ -22,6 +25,10 @@ let updateNewArticle = function () {
 
     this.setTitle = function (title) {
         this.title = title;
+    };
+
+    this.setArticleDetails = function (articleDetails) {
+        this.articleDetails = articleDetails;
     };
 
     this.checkSignIn = function () {
@@ -44,8 +51,8 @@ let updateNewArticle = function () {
 
     this.validateNewlyCreatedArticlePresent = function () {
         var articleTitle;
-        var text1 = element(by.xpath('//h1[contains(text(), "' + this.title + '")]')).getText();
-        text1.then(articleTitle => {
+        var textTitle = element(by.xpath('//h1[contains(text(), "' + this.title + '")]')).getText();
+        textTitle.then(articleTitle => {
             expect(articleTitle).toEqual(this.title);
             console.log("Article is present with name: " + articleTitle);
         })
@@ -60,11 +67,11 @@ let updateNewArticle = function () {
         editArticleButtonWebElement.click();
     };
 
-    this.updateArticleTitle = function () {
-        updatedTitle = this.title + " Updated";
-        console.log(updatedTitle);
-        articleTitle.clear();
-        articleTitle.sendKeys(updatedTitle);
+    this.updateArticleDetails = function () {
+        updatedArtcileDetailsValue= this.articleDetails + " is now changed";
+        console.log(updatedArtcileDetailsValue);
+        artcileDetailsWebElement.clear();
+        artcileDetailsWebElement.sendKeys(updatedArtcileDetailsValue);
     };
 
     this.clickPublishArticleButton = function () {
@@ -72,11 +79,10 @@ let updateNewArticle = function () {
     };
 
     this.validateSuccessfulUpdateArticle = function () {
-        var updatedTitleText;
-        var text1 = element(by.xpath('//h1[contains(text(), "' + updatedTitle + '")]')).getText();
-        text1.then(updatedTitleText => {
-            expect(updatedTitleText).toEqual(updatedTitle);
-            console.log("Article succesfully updated as: " + updatedTitleText);
+        var textArticleDetails = element(by.xpath('//p[contains(text(),"' + updatedArtcileDetailsValue + '")]')).getText();
+        textArticleDetails.then(updatedArticleDetailsText => {
+            expect(updatedArticleDetailsText).toEqual(updatedArtcileDetailsValue);
+            console.log("Article succesfully updated as: " + updatedArticleDetailsText);
         })
 
     };
