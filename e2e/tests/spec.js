@@ -58,39 +58,30 @@ describe('Backbase Assessment', function () {
 
         console.log("Now on Update Article")
         //TODO: Signin to site
-        browser.sleep(1000);
-
         //updateNewArticle.checkSignIn();
 
         updateNewArticle.setCandidateName(candidateName);
         updateNewArticle.setTitle('Testing Automation');
         updateNewArticle.setArticleDetails(newArticleDetails);
 
-        browser.sleep(1000);
         //TODO:Clicking on Candidate Profile
         updateNewArticle.clickCandidateProfile();
 
-        browser.sleep(1000);
         //TODO: Validate newly created artcile is present for update
         updateNewArticle.validateNewlyCreatedArticlePresent();
 
-        browser.sleep(1000);
         //TODO: Open article to be updated
         updateNewArticle.openArticle();
 
-        browser.sleep(1000);
         //TODO: Click on Edit Artcile button
         updateNewArticle.clickEditArticleButton();
 
-        browser.sleep(1000);
         //TODO: Update title of artcile and publish
         updateNewArticle.updateArticleDetails();
 
         //TODO: clikcing publish artcile button
-        browser.sleep(1000);
         updateNewArticle.clickPublishArticleButton();
 
-        browser.sleep(1000);
         //TODO:Verify successful creation
         updateNewArticle.validateSuccessfulUpdateArticle();
 
@@ -99,21 +90,17 @@ describe('Backbase Assessment', function () {
     it('Mark Article as favourite', function () {
 
         console.log("Now on Mark Article as favourite");
-        browser.sleep(1000);
-
+       
         //markArticleAsFavourite.checkSignIn();
         markArticleAsFavourite.setCandidateName(candidateName);
         markArticleAsFavourite.setTitle('Testing Automation');
 
-        browser.sleep(1000);
         //TODO:Clicking on Candidate Profile
         markArticleAsFavourite.clickCandidateProfile();
 
-        browser.sleep(1000);
         //TODO: Validate newly created artcile is present for update
         markArticleAsFavourite.validateNewlyCreatedArticlePresent();
 
-        browser.sleep(1000);
         //TODO: Open article to be updated
         markArticleAsFavourite.clickArticleAsFavourite();
 
@@ -124,8 +111,6 @@ describe('Backbase Assessment', function () {
         console.log("Now on Add Comments Section")
 
         //TODO:Sign-in into site
-        browser.sleep(1000);
-
         //addNewComment.checkSignIn();
 
         addNewComment.setCandidateName(candidateName);
@@ -155,25 +140,20 @@ describe('Backbase Assessment', function () {
     it('Delete Article', function () {
 
         console.log("Now on Delete Article")
-        browser.sleep(1000);
 
         //deleteArticle.checkSignIn();
         deleteArticle.setCandidateName(candidateName);
         deleteArticle.setTitle('Testing Automation');
 
-        browser.sleep(1000);
         //TODO:Clicking on Candidate Profile
         deleteArticle.clickCandidateProfile();
 
-        browser.sleep(1000);
         //TODO: Validate newly created artcile is present for update
         deleteArticle.validateNewlyCreatedArticlePresent();
 
-        browser.sleep(1000);
         //TODO: Open article to be updated
         deleteArticle.openArticle();
 
-        browser.sleep(1000);
         //TODO: Click on Edit Artcile button
         deleteArticle.clickDeleteArticleButton();
 
