@@ -1,42 +1,42 @@
-const { browser, element, by } = require("protractor");
+const {
+    browser,
+    element,
+    by
+} = require("protractor");
 
-let signinpage = require('../pages/signinpage.js');
-let createNewArticle = require('../pages/createNewArticle.js');
-let updateNewArticle = require('../pages/updateNewArticle.js');
-const { updateArticleTitle } = require("../pages/updateNewArticle.js");
+const signinpage = require('../pages/signinpage.js');
+const createNewArticle = require('../pages/createNewArticle.js');
+const updateNewArticle = require('../pages/updateNewArticle.js');
+const {
+    updateArticleTitle
+} = require("../pages/updateNewArticle.js");
 const deleteArticle = require("../pages/deleteArticle.js");
-let markArticleAsFavourite = require('../pages/markArticleAsFavourite.js');
+const markArticleAsFavourite = require('../pages/markArticleAsFavourite.js');
+const addNewComment = require('../pages/addNewComment.js');
+const candidateName = 'test24';
+const newArticleTitle = 'Testing Automation';
+const newArticleDescription = 'This is a an automation script';
+const newArticleDetails = 'This is the empty body for the script';
+const newArticleTag = 'Autotag1';
+const newComments = 'This is new comments'
 
-let candidateName = 'test24';
-let newArticleTitle = 'Testing Automation';
-let newArticleDescription = 'This is a an automation script';
-let newArticleDetails = 'This is the empty body for the script';
-let newArticleTag = 'Autotag1';
 
-
-describe('Backbase Assessment',function(){
+describe('Backbase Assessment', function () {
     var url = 'https://candidatex:qa-is-cool@qa-task.backbasecloud.com/';
-
     browser.waitForAngularEnabled(false);
-	browser.manage().timeouts().implicitlyWait(200000)
-    
-    beforeEach(function(){
+    browser.manage().timeouts().implicitlyWait(200000)
+
+    beforeEach(function () {
         browser.get(url);
         expect(browser.getTitle()).toEqual('Conduit');
-        
+
     });
 
-    it('Create New Article',function(){
+    it('Create New Article', function () {
 
-        //TODO:Sign-in into site
-        var signinWebElement = element(by.xpath('//a[contains(text(),"Sign in")]'));
-        browser.executeScript('arguments[0].click();', signinWebElement);
-        signinpage.enterEmail('test24@gmail.com');
-        signinpage.enterPassword('test24');
-        var click = element(by.css('button[type="submit"]'));
-        browser.executeScript('arguments[0].click();', click);
-        signinpage.validateSuccessfulSignin();
-       
+        //TODO: Signin to site
+        createNewArticle.checkSignIn();
+
         //TODO:Clicking on New Artcile
         createNewArticle.clickNewArticle();
 
@@ -50,22 +50,18 @@ describe('Backbase Assessment',function(){
 
         //TODO:Verify successful creation
         createNewArticle.validateSuccessfulArticleCreation();
-
-        browser.sleep(1000);
+        
     });
 
-    it('Update New Article',function(){
+
+    it('Update New Article', function () {
 
         console.log("Now on Update Article")
-        //TODO:Sign-in into site
-        // var signinWebElement = element(by.xpath('//a[contains(text(),"Sign in")]'));
-        // browser.executeScript('arguments[0].click();', signinWebElement);
-        // signinpage.enterEmail('test24@gmail.com');
-        // signinpage.enterPassword('test24');
-        // var click = element(by.css('button[type="submit"]'));
-        // browser.executeScript('arguments[0].click();', click);
-        // signinpage.validateSuccessfulSignin();
-       
+        //TODO: Signin to site
+        browser.sleep(1000);
+
+        //updateNewArticle.checkSignIn();
+
         updateNewArticle.setCandidateName(candidateName);
         updateNewArticle.setTitle('Testing Automation');
 
@@ -97,18 +93,12 @@ describe('Backbase Assessment',function(){
 
     });
 
-    it('Delete Article',function(){
+    it('Delete Article', function () {
 
         console.log("Now on Delete Article")
-        //TODO:Sign-in into site
-        var signinWebElement = element(by.xpath('//a[contains(text(),"Sign in")]'));
-        browser.executeScript('arguments[0].click();', signinWebElement);
-        signinpage.enterEmail('test24@gmail.com');
-        signinpage.enterPassword('test24');
-        var click = element(by.css('button[type="submit"]'));
-        browser.executeScript('arguments[0].click();', click);
-        signinpage.validateSuccessfulSignin();
-       
+        browser.sleep(1000);
+
+        //deleteArticle.checkSignIn();
         deleteArticle.setCandidateName(candidateName);
         deleteArticle.setTitle('Testing Automation');
 
@@ -130,18 +120,13 @@ describe('Backbase Assessment',function(){
 
     });
 
-    it('Mark Article as favourite',function(){
 
-        console.log("Now on Mark Article as favourite")
-        //TODO:Sign-in into site
-        var signinWebElement = element(by.xpath('//a[contains(text(),"Sign in")]'));
-        browser.executeScript('arguments[0].click();', signinWebElement);
-        signinpage.enterEmail('test24@gmail.com');
-        signinpage.enterPassword('test24');
-        var click = element(by.css('button[type="submit"]'));
-        browser.executeScript('arguments[0].click();', click);
-        signinpage.validateSuccessfulSignin();
-       
+    it('Mark Article as favourite', function () {
+
+        console.log("Now on Mark Article as favourite");
+        browser.sleep(1000);
+
+        //markArticleAsFavourite.checkSignIn();
         markArticleAsFavourite.setCandidateName(candidateName);
         markArticleAsFavourite.setTitle('Testing Automation');
 
@@ -158,7 +143,37 @@ describe('Backbase Assessment',function(){
         markArticleAsFavourite.clickArticleAsFavourite();
 
     });
+
+    it('Add comments on Article', function () {
+
+        console.log("Now on Add Comments Section")
+
+        //TODO:Sign-in into site
+        browser.sleep(1000);
+
+        //addNewComment.checkSignIn();
+
+        addNewComment.setCandidateName(candidateName);
+        addNewComment.setTitle('Testing Automation');
+        addNewComment.setNewComments(newComments);
+
+        //TODO:Clicking on Candidate Profile
+        addNewComment.clickCandidateProfile();
+
+        //TODO: Validate newly created artcile is present for update
+        addNewComment.validateNewlyCreatedArticlePresent();
+
+        //TODO: Open article to be updated
+        addNewComment.openArticle();
+
+        //TODO: Click on Edit Artcile button
+        addNewComment.enterComments();
+
+        //TODO:Click Post Comments button
+        addNewComment.clickPostCommentButton();
+
+        //TODO:Verify successful creation
+        addNewComment.validateSuccessfulAddComments();
+
+    });
 });
-
-
-
