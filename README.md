@@ -52,28 +52,49 @@ BackbaseAssessment
   
 #### Setup
 Run the following commands from the project root:
-```bash
+```
 npm install
 ```
 
+#### Multiple configurations
+The project contains 2 different configuration files based on the dev and test environment. The executable configuration file is ```npm run test:e2e``` which will execute depending on the chosen environment. If environment variable ENV has not been set, then the default configuration test will be executed. The ```protractor.conf.js``` contains basic configuration merged with environment specific configuration files, which are located in ```config/environment/``` directory, if chosen, will extend the basic configuration.
+
+Example:
+
 To run the e2e tests on Developement Environment:
-```bash
-ENV='dev' npm run test:e2e
+```
+ENV='dev' npm run e2e
 ```
 
 To run the e2e tests on Testing Environment:
-```bash
-ENV='test' npm run test:e2e 
+```
+ENV='test' npm run e2e 
 ```
 
-The generate visual allure report
-```bash
+#### Capabilities
+
+In order to run tests in multiple browsers in parallel, the ```multicapabilities``` module can be used, located in ```config/capabilities```.
+The ```buildForMultiCapabilities``` property is used to built dynamically using environment variables.
+
+Example:
+```
+BROWSER='chrome' npm run e2e
+```
+
+### Test results reporting and screenshots
+
+The Allure reports will be generated in the ```resports/allure-results``` folder, in HTML format.Sc reenshotrs are stored seperatedly under the ```resports/allure-results``` folder.
+
+The generate and launch visual allure reports
+```
 npm run posttest
 ```
 
-## Manual test cases
-A Excel file with manual test cases can be found under directory:
-```bash
+### Manual test cases and Bug Report
+A Excel file with manual test cases can be found under the below mentioned directory. This also includes a Bug Report for the issues found in the application.
+```
 BackbaseAssessment/ManualTests/BackbaseUITests.xlsx
 ```
-
+```
+BackbaseAssessment/ManualTests/BugReport.xlsx
+```
