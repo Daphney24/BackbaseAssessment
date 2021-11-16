@@ -27,10 +27,16 @@ BackbaseAssessment
 |
 ├───e2e 
 |   |               
-│   |───conf                            # This folder contains configuartion file
-|   |    |───conf.js
+│   |───conf                            
+|   |    |───capabilities
+|   |    |    |───multiCapabilities.js  
+│   |    |───environment.js
+|   |    |    |───devenv.conf.js
+|   |    |    |───testenv.conf.js
+|   |    |───base.conf.js
+|   |    |───protractor.conf.js
 |   |
-│   |───pages                           # This folder contains all the different web pages web elemnts and methods
+│   |───pages                           
 │   |    |───addNewComment.js
 │   |    |───createNewArtcile.js
 |   |    |───deleteArticle.js
@@ -38,14 +44,24 @@ BackbaseAssessment
 |   |    |───signinpage.js
 |   |    |───updateNewArtcile.js
 |   | 
-|   |───tests                           # This folder contains the Test Methods 
-|   |    |───spec.js  
+|   |───testdata                           
+|   |    |───dataProvider.js  
+|   |───tests                           
+│   |    |───addCommentOnArticle.js
+│   |    |───clickArticleAsFavourite.js
+|   |    |───deleteArticle.js
+|   |    |───createArticle.js
+|   |    |───updateArticle.js
+|   |    |───updateNewArtcile.js  
 |   |
-|───Reports                             # This folder contains the HTML and the allure-reports xml files as well ad the manual test cases and the bug report for issues found 
+|───reports
+|   |───UITestCases.js
+|   |───BugReport.js  
 | 
-├───target                              # Generated after running the test.This folder contains test screenshots of the executed tests
-|     
-└───screenshots                         # Generated after running the test. This folder contains screenshots for the failed tests only
+├───target                                                  
+|───screenshots 
+├── package.json
+├── README.md
 
 ```
 
@@ -54,6 +70,11 @@ BackbaseAssessment
 Run the following commands from the project root:
 ```
 npm install
+```
+
+To start the webdriver explicitly run the below command from project root:(OPTIONAL)
+```
+npm run start-webdriver
 ```
 
 #### Multiple environment configurations
@@ -85,7 +106,7 @@ The Allure reports will be generated under the ```resports/allure-results``` fol
 
 To generate and launch visual allure reports:
 ```
-npm run posttest
+npm run post-test
 ```
 
 ### Manual test cases and Bug Report
