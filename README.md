@@ -58,12 +58,12 @@ npm install
 
 To run the e2e tests on Developement Environment:
 ```bash
-npm run dev:e2e 
+ENV='dev' npm run test:e2e
 ```
 
 To run the e2e tests on Testing Environment:
 ```bash
-npm run test:e2e 
+ENV='test' npm run test:e2e 
 ```
 
 The generate visual allure report
