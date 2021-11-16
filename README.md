@@ -117,3 +117,9 @@ BackbaseAssessment/ManualTests/BackbaseUITests.xlsx
 ```
 BackbaseAssessment/ManualTests/BugReport.xlsx
 ```
+
+### Test Evaluation Report
+The report is an overall evaluation test report for the application including an overview on the issues, risks, recommendation, etc. It explains why I decided to automate what I have automated, why I decided to test what I have tested, what test strategies I decided to use and why. It can be found under the below directory:
+```
+BackbaseAssessment/ManualTests/TestEvaluationReport.pdf
+```
