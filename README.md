@@ -55,8 +55,9 @@ BackbaseAssessment
 |   |    |───updateNewArtcile.js  
 |   |
 |───reports
-|   |───UITestCases.js
-|   |───BugReport.js  
+|   |───UITestCases.xlsx
+|   |───BugReport.xlsx 
+|   |───TestEvaluationReport.pdf 
 | 
 ├───target                                                  
 |───screenshots 
