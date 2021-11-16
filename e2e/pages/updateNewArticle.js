@@ -43,7 +43,6 @@ let updateNewArticle = function () {
         console.log(this.candidateName);
         const profilehref = "/profile/" + this.candidateName;
         console.log("Href is :" + profilehref);
-        browser.sleep(2000);
         const clickCandidateProfileWebElement = element(by.css('[href="' + profilehref + '"]'));
         browser.executeScript('arguments[0].click();', clickCandidateProfileWebElement);
 
@@ -59,11 +58,15 @@ let updateNewArticle = function () {
     };
 
     this.openArticle = function () {
-        var articlePresent = element(by.xpath('//h1[contains(text(), "' + this.title + '")]')).click();
+        var articlePresent = element(by.xpath('//h1[starts-with(text(), "'+this.title+'")]'));
+        let EC = protractor.ExpectedConditions;
+        browser.wait(EC.elementToBeClickable(articlePresent, 6000));
         articlePresent.click();
     };
 
     this.clickEditArticleButton = function () {
+        let EC = protractor.ExpectedConditions;
+        browser.wait(EC.elementToBeClickable(editArticleButtonWebElement, 5000));
         editArticleButtonWebElement.click();
     };
 
@@ -75,6 +78,8 @@ let updateNewArticle = function () {
     };
 
     this.clickPublishArticleButton = function () {
+        let EC = protractor.ExpectedConditions;
+        browser.wait(EC.elementToBeClickable(clickPublishArticleButton, 5000));
         browser.executeScript('arguments[0].click();', clickPublishArticleButton);
     };
 

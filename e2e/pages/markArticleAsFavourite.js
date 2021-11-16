@@ -8,8 +8,6 @@ let markArticleAsFavourite = function () {
 
     const title = '';
     const candidateName = '';
-    let deleteArticleButtonWebElement = element(by.xpath('//button[contains(text(), "Delete Article")]'));
-    let articleTitle = element(by.css('input[formcontrolname=title]'));
     let clickAsFavouriteWebElement = element(by.xpath('//app-favorite-button[@class="pull-xs-right"]'));
     const emailID = 'test24@gmail.com';
     const password = 'test24';
@@ -36,7 +34,6 @@ let markArticleAsFavourite = function () {
         console.log(this.candidateName);
         const profilehref = "/profile/" + this.candidateName;
         console.log("Href is :" + profilehref);
-        browser.sleep(2000);
         const clickCandidateProfileWebElement = element(by.css('[href="' + profilehref + '"]'));
         browser.executeScript('arguments[0].click();', clickCandidateProfileWebElement);
 

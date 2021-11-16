@@ -9,9 +9,7 @@ let deleteArticle = function () {
 
     const title = '';
     const candidateName = '';
-    const latestArticleTitle = updateNewArticle.updatedTitle;
     let deleteArticleButtonWebElement = element(by.xpath('//button[contains(text(), "Delete Article")]'));
-    let articleTitle = element(by.css('input[formcontrolname=title]'));
     const emailID = 'test24@gmail.com';
     const password = 'test24';
     const click = element(by.css('button[type="submit"]'));
@@ -35,7 +33,6 @@ let deleteArticle = function () {
 
     this.clickCandidateProfile = function () {
         console.log(this.candidateName);
-        browser.sleep(2000);
         const profilehref = `/profile/${this.candidateName}`;
         console.log("Href is :" + profilehref);
         const clickCandidateProfileWebElement = element(by.css('[href="' + profilehref + '"]'));
@@ -52,11 +49,17 @@ let deleteArticle = function () {
     };
 
     this.openArticle = function () {
-        const articlePresent = element(by.xpath('//h1[starts-with(text(), "' + this.title + '")]')).click();
+        console.log("open article method");
+        const articlePresent = element(by.xpath('//h1[starts-with(text(), "' + this.title + '")]'));
+        let EC = protractor.ExpectedConditions;
+        browser.wait(EC.elementToBeClickable(articlePresent, 5000));
         articlePresent.click();
+
     };
 
     this.clickDeleteArticleButton = function () {
+        let EC = protractor.ExpectedConditions;
+        browser.wait(EC.elementToBeClickable(deleteArticleButtonWebElement, 5000));
         deleteArticleButtonWebElement.click();
         console.log("Article Deleted Successfully");
     };

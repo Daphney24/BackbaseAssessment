@@ -1,29 +1,49 @@
 var HtmlScreenshotReporter = require('protractor-jasmine2-screenshot-reporter');
-
+var baseUrl;
 var reporter = new HtmlScreenshotReporter({
     dest: 'target/screenshots',
     filename: 'my-report.html'
 });
 
+let devenvConf = require('./environment/devenv.conf');
+let testenvConf = require('./environment/testenv.conf');
+
 exports.config = {
     framework: 'jasmine',
-    directConnect:true,
-    seleniumAddress: 'http://localhost:4444/wd/hub',
-    specs: ['../tests/spec.js'],
-    capabilities:
-    {
+    //directConnect:true,
+    //seleniumAddress: 'http://localhost:4444/wd/hub',
+    specs: ['../tests/createArticle.js', '../tests/updateArticle.js', '../tests/addCommentOnArticle.js', '../tests/clickArticleAsFavourite.js', '../tests/deleteArticle.js'],
+
+    // capabilities: {
+    //     'browserName': 'chrome',
+    //     'goog:chromeOptions': {
+    //         w3c: false
+    //     }
+     multiCapabilities: [
+         {
         'browserName': 'chrome',
+        'goog:chromeOptions': {
+            w3c: false
+        }}],
+    //     {
+    //     'browserName': 'firefox'
+    // }],
+
+    jasmineNodeOpts: {
+        showColors: true,
+        defaultTimeoutInterval: 60000,
     },
-    // Setup the report before any tests start
+
     beforeLaunch: function () {
         return new Promise(function (resolve) {
             reporter.beforeLaunch(resolve);
         });
     },
 
-    // Assign the test reporter to each running instance
-    onPrepare: async ()  => {
+    onPrepare: async () => {
         await browser.waitForAngularEnabled(false);
+        browser.driver.get(browser.params.baseUrl);
+
         jasmine.getEnv().addReporter(reporter);
         var AllureReporter = require('jasmine-allure-reporter');
         jasmine.getEnv().addReporter(new AllureReporter({
@@ -61,7 +81,7 @@ exports.config = {
 
     },
 
-    // Close the report after all tests finish
+
     afterLaunch: function (exitCode) {
         return new Promise(function (resolve) {
             reporter.afterLaunch(resolve.bind(this, exitCode));

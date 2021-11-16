@@ -11,7 +11,6 @@ let createNewArticle = function () {
     const articleDescription = element(by.css('input[formcontrolname=description]'));
     const articleDetails = element(by.xpath('//textarea[@placeholder="Write your article (in markdown)"]'));
     const articleTag = element(by.xpath('//input[@placeholder="Enter tags"]'));
-    const verifyArticleWebElement = element(by.xpath('//h1[contains(text(),"123")]'));
     const title = '';
     const emailID = 'test24@gmail.com';
     const password = 'test24';

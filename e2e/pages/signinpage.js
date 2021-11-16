@@ -7,9 +7,8 @@ let signinpage = function () {
 
     let signinEmail_input = element(by.css('input[formcontrolname=email]'));
     let signinPassword_input = element(by.css('input[formcontrolname=password]'));
-    let signin_button = element(by.buttonText(' Sign in '));
     var signinWebElement = element(by.xpath('//a[contains(text(),"Sign in")]'));
-    var candidatename = "test24";
+    //var candidatename = "test24";
 
     this.clikcSigninLink = function () {
         browser.executeScript('arguments[0].click();', signinWebElement);
@@ -24,8 +23,8 @@ let signinpage = function () {
     };
 
     this.clickSignInButton = function () {
-        var click = element(by.css('button[type="submit"]'));
-        browser.executeScript('arguments[0].click();', click);
+        var signin_button = element(by.css('button[type="submit"]'));
+        browser.executeScript('arguments[0].click();', signin_button);
     };
 
     this.validateSuccessfulSignin = function () {

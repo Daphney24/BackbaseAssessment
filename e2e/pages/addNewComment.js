@@ -8,9 +8,6 @@ let addNewComment = function () {
 
     const title = '';
     const candidateName = '';
-    const editArticleButtonWebElement = element(by.xpath('//a[contains(text(), "Edit Article")]'));
-    const articleTitle = element(by.css('input[formcontrolname=title]'));
-    const clickPublishArticleButton = element(by.xpath('//button[normalize-space()="Publish Article"]'));
     const enterCommentsWebElement = element(by.xpath('//textarea[@placeholder="Write a comment..."]'));
     const clickPostCommentButton = element(by.css('button[type="submit"]'));
     const emailID = 'test24@gmail.com';
@@ -45,7 +42,6 @@ let addNewComment = function () {
         console.log(this.candidateName);
         const profilehref = "/profile/" + this.candidateName;
         console.log("Href is :" + profilehref);
-        browser.sleep(2000);
         const clickCandidateProfileWebElement = element(by.css('[href="' + profilehref + '"]'));
         browser.executeScript('arguments[0].click();', clickCandidateProfileWebElement);
     };
@@ -62,7 +58,9 @@ let addNewComment = function () {
 
     this.openArticle = function () {
         console.log("open article method");
-        const articlePresent = element(by.xpath('//h1[contains(text(), "' + this.title + '")]')).click();
+        const articlePresent = element(by.xpath('//h1[starts-with(text(), "' + this.title + '")]'));
+        let EC = protractor.ExpectedConditions;
+        browser.wait(EC.elementToBeClickable(articlePresent, 5000));
         articlePresent.click();
     };
 
@@ -73,8 +71,7 @@ let addNewComment = function () {
 
     this.clickPostCommentButton = function () {
         let EC = protractor.ExpectedConditions;
-        // Waits for element to be present on the DOM with 5s timeout
-        browser.wait(EC.presenceOf(clickPostCommentButton, 5000));
+        browser.wait(EC.elementToBeClickable(clickPostCommentButton, 5000));
         clickPostCommentButton.click();
     };
 

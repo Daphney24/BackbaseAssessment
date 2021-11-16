@@ -1,7 +1,7 @@
 {
   "name": "BackbaseAssessment",
   "version": "1.0.0",
-  "description": "Backbase Assessment solution for Mobiquity",
+  "description": "Backbase Assessment solution for Mobiquity containing executions based on environments",
   "main": "index.js",
   "dependencies": {
     "allure-commandline": "^2.13.8",
@@ -11,8 +11,10 @@
     "protractor-html-reporter-2": "^1.0.4"
   },
   "scripts": {
-    "test:e2e": "protractor e2e/conf/conf.js",
-    "posttest": "allure serve allure-results"
+    "test:e2e": "./node_modules/.bin/protractor e2e/conf/protractor.conf.js",
+    "dev:e2e": "./node_modules/.bin/protractor e2e/conf/protractor.conf.js",
+    "start-webdriver": "./node_modules/.bin/webdriver-manager update && ./node_modules/.bin/webdriver-manager start",
+    "post-test": "allure serve allure-results"
   },
   "author": "Daphney",
   "license": "ISC",
