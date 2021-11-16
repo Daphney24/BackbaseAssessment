@@ -10,6 +10,7 @@ const dataProvider = require('../testdata/dataProvider.js');
 describe('Backbase Assessment', function () {
     browser.manage().timeouts().implicitlyWait(200000)
     browser.waitForAngularEnabled(false);
+    browser.manage().window().maximize();
 
     it('Update New Article', function () {
 

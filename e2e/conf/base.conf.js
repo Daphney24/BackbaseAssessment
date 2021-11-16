@@ -4,30 +4,19 @@ var reporter = new HtmlScreenshotReporter({
     dest: 'target/screenshots',
     filename: 'my-report.html'
 });
-
-let devenvConf = require('./environment/devenv.conf');
-let testenvConf = require('./environment/testenv.conf');
+const multicaps = require('./capabilities/multicapabilities');
 
 exports.config = {
     framework: 'jasmine',
-    //directConnect:true,
-    //seleniumAddress: 'http://localhost:4444/wd/hub',
-    specs: ['../tests/createArticle.js', '../tests/updateArticle.js', '../tests/addCommentOnArticle.js', '../tests/clickArticleAsFavourite.js', '../tests/deleteArticle.js'],
-
-    // capabilities: {
-    //     'browserName': 'chrome',
-    //     'goog:chromeOptions': {
-    //         w3c: false
-    //     }
-     multiCapabilities: [
-         {
-        'browserName': 'chrome',
-        'goog:chromeOptions': {
-            w3c: false
-        }}],
-    //     {
-    //     'browserName': 'firefox'
-    // }],
+    specs: [
+        '../tests/createArticle.js',
+        '../tests/updateArticle.js',
+        '../tests/addCommentOnArticle.js', 
+        '../tests/clickArticleAsFavourite.js', 
+        '../tests/deleteArticle.js'
+        ],
+    
+    multiCapabilities: multicaps.buildForMultiCapabilities(),
 
     jasmineNodeOpts: {
         showColors: true,
