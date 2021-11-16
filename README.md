@@ -27,10 +27,16 @@ BackbaseAssessment
 |
 ├───e2e 
 |   |               
-│   |───conf                            # This folder contains configuartion file
-|   |    |───conf.js
+│   |───conf                            
+|   |    |───capabilities
+|   |    |    |───multiCapabilities.js  
+│   |    |───environment.js
+|   |    |    |───devenv.conf.js
+|   |    |    |───testenv.conf.js
+|   |    |───base.conf.js
+|   |    |───protractor.conf.js
 |   |
-│   |───pages                           # This folder contains all the different web pages web elemnts and methods
+│   |───pages                           
 │   |    |───addNewComment.js
 │   |    |───createNewArtcile.js
 |   |    |───deleteArticle.js
@@ -38,42 +44,83 @@ BackbaseAssessment
 |   |    |───signinpage.js
 |   |    |───updateNewArtcile.js
 |   | 
-|   |───tests                           # This folder contains the Test Methods 
-|   |    |───spec.js  
+|   |───testdata                           
+|   |    |───dataProvider.js  
+|   |───tests                           
+│   |    |───addCommentOnArticle.js
+│   |    |───clickArticleAsFavourite.js
+|   |    |───deleteArticle.js
+|   |    |───createArticle.js
+|   |    |───updateArticle.js
+|   |    |───updateNewArtcile.js  
 |   |
-|───Reports                             # This folder contains the HTML and the allure-reports xml files as well ad the manual test cases and the bug report for issues found 
+|───reports
+|   |───UITestCases.xlsx
+|   |───BugReport.xlsx 
+|   |───TestEvaluationReport.pdf 
 | 
-├───target                              # Generated after running the test.This folder contains test screenshots of the executed tests
-|     
-└───screenshots                         # Generated after running the test. This folder contains screenshots for the failed tests only
+├───target                                                  
+|───screenshots 
+├── package.json
+├── README.md
 
 ```
 
   
 #### Setup
 Run the following commands from the project root:
-```bash
+```
 npm install
 ```
 
+To start the webdriver explicitly run the below command from project root:(OPTIONAL)
+```
+npm run start-webdriver
+```
+
+#### Multiple environment configurations
+The project contains multiple configuration files based on the entered environment for execution. The executable configuration file is ```protractor.conf.js``` which will execute depending on value of the environment variable ENV. If environment variable has not been set, then the default configuration ```testenv.conf.js``` will be executed. The ```base.conf.js``` contains basic configuration merged with environment specific configuration files(either devenv.conf.js or testenv.conf.js) based on the entry provided in the commandline.
+
+Example:
+
 To run the e2e tests on Developement Environment:
-```bash
-ENV='dev' npm run test:e2e
+```
+ENV='dev' npm run e2e
 ```
 
 To run the e2e tests on Testing Environment:
-```bash
-ENV='test' npm run test:e2e 
+```
+ENV='test' npm run e2e 
 ```
 
-The generate visual allure report
-```bash
-npm run posttest
+#### Capabilities
+In order to run tests in different browsers , the ```multicapabilities``` module can be used, located in ```conf/capabilities```.
+The ```buildForMultiCapabilities``` property is used to built dynamically using environment variables.
+
+Example:
+```
+BROWSER='chrome' npm run e2e
 ```
 
-## Manual test cases
-A Excel file with manual test cases can be found under directory:
-```bash
+### Test results reporting and screenshots
+The Allure reports will be generated under the ```resports/allure-results``` folder, in HTML format.Thescreenshots are stored seperately under the ```screenshots``` folder.
+
+To generate and launch visual allure reports:
+```
+npm run post-test
+```
+
+### Manual test cases and Bug Report
+A Excel file with manual test cases can be found under the below mentioned directory. This also includes a Bug Report for the issues found in the application.
+```
 BackbaseAssessment/ManualTests/BackbaseUITests.xlsx
 ```
+```
+BackbaseAssessment/ManualTests/BugReport.xlsx
+```
 
+### Test Evaluation Report
+The report is an overall evaluation test report for the application including an overview on the issues, risks, recommendation, etc. It explains why I decided to automate what I have automated, why I decided to test what I have tested, what test strategies I decided to use and why. It can be found under the below directory:
+```
+BackbaseAssessment/ManualTests/TestEvaluationReport.pdf
+```
