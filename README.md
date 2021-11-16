@@ -56,8 +56,8 @@ Run the following commands from the project root:
 npm install
 ```
 
-#### Multiple configurations
-The project contains 2 different configuration files based on the dev and test environment. The executable configuration file is ```npm run test:e2e``` which will execute depending on the chosen environment. If environment variable ENV has not been set, then the default configuration test will be executed. The ```protractor.conf.js``` contains basic configuration merged with environment specific configuration files, which are located in ```config/environment/``` directory, if chosen, will extend the basic configuration.
+#### Multiple environment configurations
+The project contains multiple configuration files based on the entered environment for execution. The executable configuration file is ```protractor.conf.js``` which will execute depending on value of the environment variable ENV. If environment variable has not been set, then the default configuration ```testenv.conf.js``` will be executed. The ```base.conf.js``` contains basic configuration merged with environment specific configuration files(either devenv.conf.js or testenv.conf.js) based on the entry provided in the commandline.
 
 Example:
 
@@ -72,8 +72,7 @@ ENV='test' npm run e2e
 ```
 
 #### Capabilities
-
-In order to run tests in multiple browsers in parallel, the ```multicapabilities``` module can be used, located in ```config/capabilities```.
+In order to run tests in different browsers , the ```multicapabilities``` module can be used, located in ```conf/capabilities```.
 The ```buildForMultiCapabilities``` property is used to built dynamically using environment variables.
 
 Example:
@@ -82,10 +81,9 @@ BROWSER='chrome' npm run e2e
 ```
 
 ### Test results reporting and screenshots
+The Allure reports will be generated under the ```resports/allure-results``` folder, in HTML format.Thescreenshots are stored seperately under the ```screenshots``` folder.
 
-The Allure reports will be generated in the ```resports/allure-results``` folder, in HTML format.Sc reenshotrs are stored seperatedly under the ```resports/allure-results``` folder.
-
-The generate and launch visual allure reports
+To generate and launch visual allure reports:
 ```
 npm run posttest
 ```
