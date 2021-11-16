@@ -1,0 +1,15 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1636828618493' stop='1636828623318'>
+    <name>Backbase Assessment</name>
+    <title>Backbase Assessment</title>
+    <test-cases>
+        <test-case start='1636828618494' status='passed' stop='1636828623317'>
+            <name>Sign-in into candidate account</name>
+            <title>Sign-in into candidate account</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

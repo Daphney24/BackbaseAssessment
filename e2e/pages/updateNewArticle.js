@@ -3,6 +3,7 @@ const {
     element
 } = require("protractor");
 const signinpage = require('../pages/signinpage.js');
+const dataProvider = require('../testdata/dataProvider.js');
 
 let updateNewArticle = function () {
 
@@ -13,12 +14,9 @@ let updateNewArticle = function () {
     let articleTitle = element(by.css('input[formcontrolname=title]'));
     let artcileDetailsWebElement = element(by.xpath('//textarea[@placeholder="Write your article (in markdown)"]'));
     let clickPublishArticleButton = element(by.xpath('//button[normalize-space()="Publish Article"]'));
-    const emailID = 'test24@gmail.com';
-    const password = 'test24';
     const click = element(by.css('button[type="submit"]'));
     const signinWebElement = element(by.xpath('//a[contains(text(),"Sign in")]'));
-    var updatedArticleDetailsText;
-
+    
     this.setCandidateName = function (candidateName) {
         this.candidateName = candidateName;
     };
@@ -33,16 +31,14 @@ let updateNewArticle = function () {
 
     this.checkSignIn = function () {
         browser.executeScript('arguments[0].click();', signinWebElement);
-        signinpage.enterEmail(emailID);
-        signinpage.enterPassword(password);
+        signinpage.enterEmail(dataProvider.signinPage.emailID);
+        signinpage.enterPassword(dataProvider.signinPage.password);
         browser.executeScript('arguments[0].click();', click);
         signinpage.validateSuccessfulSignin();
     };
 
     this.clickCandidateProfile = function () {
-        console.log(this.candidateName);
         const profilehref = "/profile/" + this.candidateName;
-        console.log("Href is :" + profilehref);
         const clickCandidateProfileWebElement = element(by.css('[href="' + profilehref + '"]'));
         browser.executeScript('arguments[0].click();', clickCandidateProfileWebElement);
 
@@ -53,7 +49,6 @@ let updateNewArticle = function () {
         var textTitle = element(by.xpath('//h1[contains(text(), "' + this.title + '")]')).getText();
         textTitle.then(articleTitle => {
             expect(articleTitle).toEqual(this.title);
-            console.log("Article is present with name: " + articleTitle);
         })
     };
 
@@ -72,7 +67,6 @@ let updateNewArticle = function () {
 
     this.updateArticleDetails = function () {
         updatedArtcileDetailsValue= this.articleDetails + " is now changed";
-        console.log(updatedArtcileDetailsValue);
         artcileDetailsWebElement.clear();
         artcileDetailsWebElement.sendKeys(updatedArtcileDetailsValue);
     };
@@ -84,10 +78,11 @@ let updateNewArticle = function () {
     };
 
     this.validateSuccessfulUpdateArticle = function () {
-        var textArticleDetails = element(by.xpath('//p[contains(text(),"' + updatedArtcileDetailsValue + '")]')).getText();
-        textArticleDetails.then(updatedArticleDetailsText => {
+        var updatedArticleDetailsText;
+        var articleDetailsWebElement = element(by.xpath('//p[contains(text(),"' + updatedArtcileDetailsValue + '")]')).getText();
+        articleDetailsWebElement.then(updatedArticleDetailsText => {
             expect(updatedArticleDetailsText).toEqual(updatedArtcileDetailsValue);
-            console.log("Article succesfully updated as: " + updatedArticleDetailsText);
+            console.log("Article Details section succesfully updated to: " + updatedArticleDetailsText);
         })
 
     };

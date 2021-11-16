@@ -3,6 +3,7 @@ const {
     element
 } = require("protractor");
 const signinpage = require('../pages/signinpage.js');
+const dataProvider = require('../testdata/dataProvider.js');
 
 let createNewArticle = function () {
 
@@ -12,9 +13,7 @@ let createNewArticle = function () {
     const articleDetails = element(by.xpath('//textarea[@placeholder="Write your article (in markdown)"]'));
     const articleTag = element(by.xpath('//input[@placeholder="Enter tags"]'));
     const title = '';
-    const emailID = 'test24@gmail.com';
-    const password = 'test24';
-    const click = element(by.css('button[type="submit"]'));
+    const clickSigninButton = element(by.css('button[type="submit"]'));
     const signinWebElement = element(by.xpath('//a[contains(text(),"Sign in")]'));
 
     this.setTitle = function (title) {
@@ -27,9 +26,9 @@ let createNewArticle = function () {
 
     this.checkSignIn = function () {
         browser.executeScript('arguments[0].click();', signinWebElement);
-        signinpage.enterEmail(emailID);
-        signinpage.enterPassword(password);
-        browser.executeScript('arguments[0].click();', click);
+        signinpage.enterEmail(dataProvider.signinPage.emailID);
+        signinpage.enterPassword(dataProvider.signinPage.password);
+        browser.executeScript('arguments[0].click();', clickSigninButton);
         signinpage.validateSuccessfulSignin();
     };
 
@@ -52,19 +51,16 @@ let createNewArticle = function () {
     };
 
     this.clickPublishArticleButton = function () {
-        const click = element(by.xpath('//button[normalize-space()="Publish Article"]'));
-        browser.executeScript('arguments[0].click();', click);
+        const clickSigninButton = element(by.xpath('//button[normalize-space()="Publish Article"]'));
+        browser.executeScript('arguments[0].click();', clickSigninButton);
     };
 
     this.validateSuccessfulArticleCreation = function () {
-        const elementText = '';
-        const textTitle = element(by.xpath('//h1[contains(text(), "' + this.title + '")]')).getText();
-        textTitle.then(elementText => {
-            expect(elementText).toEqual(this.title);
-            console.log("Article succesfully created for: " + elementText);
+        const articleTitleValue = '';
+        const articleTitleWebElement = element(by.xpath('//h1[contains(text(), "' + this.title + '")]')).getText();
+        articleTitleWebElement.then(articleTitleValue => {
+            expect(articleTitleValue).toEqual(this.title);
         })
-
     };
-
 };
 module.exports = new createNewArticle();

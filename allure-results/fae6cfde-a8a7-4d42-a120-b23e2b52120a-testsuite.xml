@@ -1,0 +1,64 @@
+<?xml version='1.0'?>
+<ns2:test-suite xmlns:ns2='urn:model.allure.qatools.yandex.ru' start='1636936765295' stop='1636936765382'>
+    <name>Backbase Assessment</name>
+    <title>Backbase Assessment</title>
+    <test-cases>
+        <test-case start='1636936765295' status='failed' stop='1636936765380'>
+            <name>Update New Article</name>
+            <title>Update New Article</title>
+            <labels/>
+            <parameters/>
+            <steps/>
+            <attachments/>
+            <failure>
+                <message>Failed: unknown error: cannot determine loading status
+                from unknown error: cannot determine loading status
+                from disconnected: Unable to receive message from renderer
+                  (Session info: chrome=95.0.4638.69)
+                  (Driver info: chromedriver=95.0.4638.69 (6a1600ed572fedecd573b6c2b90a22fe6392a410-refs/branch-heads/4638@{#984}),platform=Mac OS X 11.5.2 x86_64)</message>
+                <stack-trace>WebDriverError: unknown error: cannot determine loading status
+                from unknown error: cannot determine loading status
+                from disconnected: Unable to receive message from renderer
+                  (Session info: chrome=95.0.4638.69)
+                  (Driver info: chromedriver=95.0.4638.69 (6a1600ed572fedecd573b6c2b90a22fe6392a410-refs/branch-heads/4638@{#984}),platform=Mac OS X 11.5.2 x86_64)
+                    at Object.checkLegacyResponse (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/error.js:546:15)
+                    at parseHttpResponse (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/http.js:509:13)
+                    at /usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/http.js:441:30
+                    at processTicksAndRejections (node:internal/process/task_queues:96:5)
+                From: Task: WebDriver.navigate().to(https://candidatex:qa-is-cool@qa-task.backbasecloud.com/)
+                    at Driver.schedule (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver.js:807:17)
+                    at Navigation.to (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver.js:1133:25)
+                    at Driver.get (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/webdriver.js:988:28)
+                    at ProtractorBrowser.get (/usr/local/lib/node_modules/protractor/built/browser.js:653:32)
+                    at UserContext.&lt;anonymous> (/Users/ddsouza/Dropbox/Mac/Desktop/BackbaseAssessment/e2e/tests/spec.js:27:17)
+                    at /usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:112:25
+                    at new ManagedPromise (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:1077:7)
+                    at ControlFlow.promise (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:2505:12)
+                    at schedulerExecute (/usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:95:18)
+                    at TaskQueue.execute_ (/usr/local/lib/node_modules/protractor/node_modules/selenium-webdriver/lib/promise.js:3084:14)
+                From: Task: Run beforeEach in control flow
+                    at UserContext.&lt;anonymous> (/usr/local/lib/node_modules/protractor/node_modules/jasminewd2/index.js:94:19)
+                    at attempt (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4297:26)
+                    at QueueRunner.run (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4217:20)
+                    at QueueRunner.execute (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4199:10)
+                    at Spec.queueRunnerFactory (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:909:35)
+                    at Spec.execute (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:526:10)
+                    at UserContext.fn (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:5340:37)
+                    at attempt (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4297:26)
+                    at QueueRunner.run (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4217:20)
+                    at QueueRunner.execute (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4199:10)
+                From asynchronous test: 
+                Error
+                    at Suite.&lt;anonymous> (/Users/ddsouza/Dropbox/Mac/Desktop/BackbaseAssessment/e2e/tests/spec.js:26:5)
+                    at addSpecsToSuite (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1107:25)
+                    at Env.describe (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:1074:7)
+                    at describe (/usr/local/lib/node_modules/protractor/node_modules/jasmine-core/lib/jasmine-core/jasmine.js:4399:18)
+                    at Object.&lt;anonymous> (/Users/ddsouza/Dropbox/Mac/Desktop/BackbaseAssessment/e2e/tests/spec.js:20:1)
+                    at Module._compile (node:internal/modules/cjs/loader:1101:14)
+                    at Object.Module._extensions..js (node:internal/modules/cjs/loader:1153:10)
+                    at Module.load (node:internal/modules/cjs/loader:981:32)
+                    at Function.Module._load (node:internal/modules/cjs/loader:822:12)</stack-trace>
+            </failure>
+        </test-case>
+    </test-cases>
+</ns2:test-suite>

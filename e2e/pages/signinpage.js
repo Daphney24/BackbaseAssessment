@@ -8,8 +8,7 @@ let signinpage = function () {
     let signinEmail_input = element(by.css('input[formcontrolname=email]'));
     let signinPassword_input = element(by.css('input[formcontrolname=password]'));
     var signinWebElement = element(by.xpath('//a[contains(text(),"Sign in")]'));
-    //var candidatename = "test24";
-
+    
     this.clikcSigninLink = function () {
         browser.executeScript('arguments[0].click();', signinWebElement);
     };
@@ -28,11 +27,11 @@ let signinpage = function () {
     };
 
     this.validateSuccessfulSignin = function () {
-        var elementText;
-        var text1 = element(by.xpath('//nav[1]/div[1]/ul[1]/li[4]/a[1]')).getText();
-        text1.then(elementText => {
-            expect(elementText).toEqual("test24");
-            console.log("Signin is Successful for candidate: " + elementText);
+        var getCandidateNameValue;
+        var getCandidateNameWebElement = element(by.xpath('//nav[1]/div[1]/ul[1]/li[4]/a[1]')).getText();
+        getCandidateNameWebElement.then(getCandidateNameValue => {
+            expect(getCandidateNameValue).toEqual("test24");
+            console.log("Signin is Successful for candidate: " + getCandidateNameValue);
         })
 
     };

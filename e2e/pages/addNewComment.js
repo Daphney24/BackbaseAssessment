@@ -3,6 +3,7 @@ const {
     element
 } = require("protractor");
 const signinpage = require('../pages/signinpage.js');
+const dataProvider = require('../testdata/dataProvider.js');
 
 let addNewComment = function () {
 
@@ -10,9 +11,7 @@ let addNewComment = function () {
     const candidateName = '';
     const enterCommentsWebElement = element(by.xpath('//textarea[@placeholder="Write a comment..."]'));
     const clickPostCommentButton = element(by.css('button[type="submit"]'));
-    const emailID = 'test24@gmail.com';
-    const password = 'test24';
-    const click = element(by.css('button[type="submit"]'));
+    const clickSigninButton = element(by.css('button[type="submit"]'));
     const signinWebElement = element(by.xpath('//a[contains(text(),"Sign in")]'));
 
     this.setCandidateName = function (candidateName) {
@@ -28,36 +27,30 @@ let addNewComment = function () {
     };
 
     this.checkSignIn = function () {
-        console.log("signin method");
         browser.executeScript('arguments[0].click();', signinWebElement);
-        signinpage.enterEmail(emailID);
-        signinpage.enterPassword(password);
-        browser.executeScript('arguments[0].click();', click);
+        signinpage.enterEmail(dataProvider.signinPage.emailID);
+        signinpage.enterPassword(dataProvider.signinPage.password);
+        browser.executeScript('arguments[0].click();', clickSigninButton);
         signinpage.validateSuccessfulSignin();
         return this.candidateName;
     };
 
     this.clickCandidateProfile = function () {
-        console.log("clickcandidateProfile method");
-        console.log(this.candidateName);
         const profilehref = "/profile/" + this.candidateName;
-        console.log("Href is :" + profilehref);
         const clickCandidateProfileWebElement = element(by.css('[href="' + profilehref + '"]'));
         browser.executeScript('arguments[0].click();', clickCandidateProfileWebElement);
     };
 
     this.validateNewlyCreatedArticlePresent = function () {
-        console.log("validate artcile present method");
         const articleTitle = '';
-        const text1 = element(by.xpath('//h1[contains(text(), "' + this.title + '")]')).getText();
-        text1.then(articleTitle => {
-            expect(articleTitle).toEqual(this.title);
-            console.log("Article is present with name: " + articleTitle);
+        const articleTitleWebElement = element(by.xpath('//h1[contains(text(), "' + this.title + '")]')).getText();
+        articleTitleWebElement.then(articleTitleValue => {
+            expect(articleTitleValue).toEqual(this.title);
+            console.log("Article is present with name: " + articleTitleValue);
         })
     };
 
     this.openArticle = function () {
-        console.log("open article method");
         const articlePresent = element(by.xpath('//h1[starts-with(text(), "' + this.title + '")]'));
         let EC = protractor.ExpectedConditions;
         browser.wait(EC.elementToBeClickable(articlePresent, 5000));
@@ -65,8 +58,7 @@ let addNewComment = function () {
     };
 
     this.enterComments = function () {
-        console.log("enter comments method");
-        enterCommentsWebElement.sendKeys(this.newComments);
+       enterCommentsWebElement.sendKeys(this.newComments);
     };
 
     this.clickPostCommentButton = function () {
@@ -76,12 +68,10 @@ let addNewComment = function () {
     };
 
     this.validateSuccessfulAddComments = function () {
-        console.log("validatecomments method");
-        const newCommentsCheck = '';
-        const textTitle = element(by.xpath('//p[contains(text(), "' + this.newComments + '")]')).getText();
-        textTitle.then(newCommentsCheck => {
-            expect(newCommentsCheck).toEqual(this.newComments);
-            console.log("Article succesfully updated as: " + newCommentsCheck);
+        const newCommentsValue = '';
+        const commentWebElement = element(by.xpath('//p[contains(text(), "' + this.newComments + '")]')).getText();
+        commentWebElement.then(newCommentsValue => {
+            expect(newCommentsValue).toEqual(this.newComments);
         })
 
     };

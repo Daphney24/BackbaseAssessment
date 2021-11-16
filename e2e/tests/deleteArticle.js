@@ -5,7 +5,7 @@ const {
 } = require("protractor");
 
 const deleteArticle = require("../pages/deleteArticle.js");
-const candidateName = 'test24';
+const dataProvider = require('../testdata/dataProvider.js');
 
 describe('Backbase Assessment', function () {
     browser.manage().timeouts().implicitlyWait(200000)
@@ -13,8 +13,8 @@ describe('Backbase Assessment', function () {
 
     it('Delete Article', function () {
 
-        deleteArticle.setCandidateName(candidateName);
-        deleteArticle.setTitle('Testing Automation');
+        deleteArticle.setCandidateName(dataProvider.signinPage.candidateName);
+        deleteArticle.setTitle(dataProvider.toSelectArticleByTitle.title);
         deleteArticle.clickCandidateProfile();
         deleteArticle.validateNewlyCreatedArticlePresent();
         deleteArticle.openArticle();

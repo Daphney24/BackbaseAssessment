@@ -5,8 +5,7 @@ const {
 } = require("protractor");
 
 const updateNewArticle = require('../pages/updateNewArticle.js');
-const candidateName = 'test24';
-const newArticleDetails = 'This is the empty body for the script';
+const dataProvider = require('../testdata/dataProvider.js');
 
 describe('Backbase Assessment', function () {
     browser.manage().timeouts().implicitlyWait(200000)
@@ -15,9 +14,9 @@ describe('Backbase Assessment', function () {
     it('Update New Article', function () {
 
         console.log("Now on Update Article")
-        updateNewArticle.setCandidateName(candidateName);
-        updateNewArticle.setTitle('Testing Automation');
-        updateNewArticle.setArticleDetails(newArticleDetails);
+        updateNewArticle.setCandidateName(dataProvider.signinPage.candidateName);
+        updateNewArticle.setTitle(dataProvider.toSelectArticleByTitle.title);
+        updateNewArticle.setArticleDetails(dataProvider.updateArticle.newArticleDetails);
         updateNewArticle.clickCandidateProfile();
         updateNewArticle.validateNewlyCreatedArticlePresent();
         updateNewArticle.openArticle();

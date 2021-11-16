@@ -5,8 +5,7 @@ const {
 } = require("protractor");
 
 const addNewComment = require('../pages/addNewComment.js');
-const candidateName = 'test24';
-const newComments = 'This is new comments'
+const dataProvider = require('../testdata/dataProvider.js');
 
 describe('Backbase Assessment', function () {
     browser.manage().timeouts().implicitlyWait(200000)
@@ -14,9 +13,10 @@ describe('Backbase Assessment', function () {
 
     it('Add comments on Article', function () {
 
-        addNewComment.setCandidateName(candidateName);
-        addNewComment.setTitle('Testing Automation');
-        addNewComment.setNewComments(newComments);
+        addNewComment.setCandidateName(dataProvider.signinPage.candidateName);
+        console.log("Title is:" + dataProvider.toSelectArticleByTitle.title);
+        addNewComment.setTitle(dataProvider.toSelectArticleByTitle.title);
+        addNewComment.setNewComments(dataProvider.updateArticle.newComments);
         addNewComment.clickCandidateProfile();
         addNewComment.validateNewlyCreatedArticlePresent();
         addNewComment.openArticle();
