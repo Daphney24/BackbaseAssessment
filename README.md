@@ -56,9 +56,14 @@ Run the following commands from the project root:
 npm install
 ```
 
-To run these e2e regression tests:
+To run the e2e tests on Developement Environment:
 ```bash
-npm run test:e2e
+npm run dev:e2e 
+```
+
+To run the e2e tests on Testing Environment:
+```bash
+npm run test:e2e 
 ```
 
 The generate visual allure report
@@ -67,7 +72,7 @@ npm run posttest
 ```
 
 ## Manual test cases
-A PDF file with manual test cases can be found here:
+A Excel file with manual test cases can be found under directory:
 ```bash
 BackbaseAssessment/ManualTests/BackbaseUITests.xlsx
 ```
