@@ -1,6 +1,7 @@
 /node_modules
 /target
 /reports/allure-results
+/allure-results
 ProtractorTestReport.html
 xmlresults.xml
 .DS_Store
