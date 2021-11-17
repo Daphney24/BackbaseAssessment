@@ -4,17 +4,18 @@ I choose to automate the functionalities for a logged in candidate. The goal her
 This is to verify the candidate has an ease to use the application as and when needed for creation and reading of articles. 
 
 #### Chosen automated test
-
+-------------------------------
 * Tool Stack: Protractor, JavaScript, Jasmine, BDD Framework, POM Architecture
 * Why did I use this stack here: 
     * Protractor is specially designed for angular applications, and as we are testing an angular applications here, it was better to opt for a protractor.Also supports cross-browser testing which we tried to achieve here.
     * Jasmine is a behavior-driven development framework for testing JavaScript code. It does not require a DOM. And it has a clean, easy syntax so that you can easily write tests.
 * Why did I automated the selected 5 tests: These are the comman actions expected from a logged in candidate.To verify these basic actions work as expected without any glitches, I chose the below tests.
 
-###Test Stratergy:
+### Test Stratergy:
+-------------------------------
 The Test Plan below indicates the items to be tested, the features to be tested, the types of testing performed.
 
-Step #1: Scope And Overview
+#### Scope And Overview
     * In Scope:
     All  the below specified tests are in scope and are tested here
         
@@ -26,34 +27,36 @@ Step #1: Scope And Overview
 |TC_UI_004|Adding comment to article|Given a candidate is logged in, An artcile can be edited and a comment can be added and posted respectively|Comment gets added for an artcile and it gets posted on the respective artcile page|
 |TC_UI_005|Deleting an article|Given a candidate is logged in, Validate that an article can be deleted by opening artcile and clicking on Delete Article button|Article is deleted successfully|
 
-    * Out of scope:
-The features for the actions performed when the user is a visiting guest. 
+   * Out of scope:
+   The features for the actions performed when the user is a visiting guest. 
+   
+#### Test Approach
 
-Step #2: Test Approach
-The test objectives is to verify the Functionality of https://qa-task.backbasecloud.com/, with focus on testing to guarantee all these below specified operation can work normally in real environment.
-    * Candidate creates an artcle
-    * Candidate updates an Artcile
-    * Candidate marks his own artcile as Favourite
-    * Candidate adds comments on his own artcile
-    * Candidate deletes his artcile
-End-to-End testing approach is followed here to evaluate the system’s compliance with its specified requirements
+    * The test objectives is to verify the Functionality of https://qa-task.backbasecloud.com/, with focus on testing to guarantee all these below specified   operation can work normally in real environment.
+      * Candidate creates an article
+      * Candidate updates an artcile
+      * Candidate marks his own artcile as Favourite
+      * Candidate adds comments on his own artcile
+      * Candidate deletes his artcile
+   * End-to-End testing approach is followed here to evaluate the system’s compliance with its specified requirements
 
-Step #3: Test Environment
-It needs minimum hardware requirements that will be used to run and test the Application
-In addition there are 2 different environments setup for maximumcoverage of tests:
-    *Dev Environment
-    *Test Environment
+#### Test Environment
 
-Step #4: Testing Tools and Deliverables
-Client Specific Tools used for automating the above specified flows are:
-For Automation: 
-    *Protractor
-    *Jasmine
-    *Javascript
-For manual tests and defects documentation:
-    *Excel
+      It needs minimum hardware requirements that will be used to run and test the Applicatio.In addition there are 2 different environments setup for maximum coverage of tests:
+         * Dev Environment
+         * Test Environment
 
-#Test deliverables are provided as below:
+#### Testing Tools and Deliverables
+
+      Client Specific Tools used for automating the above specified flows are:
+      For Automation: 
+         * Protractor
+         * Jasmine
+         * Javascript
+      For manual tests and defects documentation:
+         * Excel
+
+#### Test deliverables:
     * Before testing phase:
         Test cases documents
 
@@ -65,9 +68,28 @@ For manual tests and defects documentation:
         Defect Report
         Installation/ Test procedures guidelines
 
-Step #5: Release Control
-Granular commits done in git
+#### Release Control
+      Granular commits done in git
 
-Step #6: Defects Analysis
-![Alt text](relative/path/to/img.jpg?raw=true "DefectPriority")
+#### Risk Analysis
+
+   Each risk was classified on the basis of following two parameters:
+
+   * The probability of occurrence
+   * The impact on the project
+
+Below table can be used as a refernce to categorize the risk  as High, Medium, and Low or values 3,2, 1
+
+|Level|Probability|
+|:----------------:|:-------------:|
+|High (3)|Has very high probability to occur, may impact to the whole project|
+|Medium (2)|50% chance to occur|
+|Low (1)|Low probability of occurrence|
+   
+|Level|Impact|
+|:----------------:|:-------------:|
+|High (3)|Cannot continue with project activity if it is not solved immediately|
+|Medium (2)|Cannot continue the project activity if it is not solved|
+|Low (1)|Low probability of occurrence|
+
 

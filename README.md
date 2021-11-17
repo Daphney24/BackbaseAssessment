@@ -57,7 +57,7 @@ BackbaseAssessment
 |───reports
 |   |───UITestCases.xlsx
 |   |───BugReport.xlsx 
-|   |───TestEvaluationReport.pdf 
+|   |───TestEvaluationReport.md 
 | 
 ├───target                                                  
 |───screenshots 
