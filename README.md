@@ -23,8 +23,6 @@ This application needs to be available in order for the tests to run.
 
 ## Framework Structure
 ```
-BackbaseAssessment
-|
 ├───e2e 
 |   |               
 │   |───conf                            
@@ -73,7 +71,7 @@ Run the following commands from the project root:
 npm install
 ```
 
-To start the webdriver explicitly run the below command from project root:(OPTIONAL)
+To start the webdriver explicitly run the below command from project root in a seperate terminal(keep it open and running):
 ```
 npm run start-webdriver
 ```
@@ -82,13 +80,17 @@ npm run start-webdriver
 The project contains multiple configuration files based on the entered environment for execution. The executable configuration file is ```protractor.conf.js``` which will execute depending on value of the environment variable ENV. If environment variable has not been set, then the default configuration ```testenv.conf.js``` will be executed. The ```base.conf.js``` contains basic configuration merged with environment specific configuration files(either devenv.conf.js or testenv.conf.js) based on the entry provided in the commandline.
 
 Example:
+To run the e2e tests without specifying any Environment(will run on test environment by default):
+```
+npm run e2e
+```
 
-To run the e2e tests on Developement Environment:
+To run the e2e tests on Developement Environment explicitly:
 ```
 ENV='dev' npm run e2e
 ```
 
-To run the e2e tests on Testing Environment:
+To run the e2e tests on Testing Environment explicitly:
 ```
 ENV='test' npm run e2e 
 ```
@@ -105,7 +107,7 @@ BROWSER='chrome' npm run e2e
 ### Test results reporting and screenshots
 The Allure reports will be generated under the ```resports/allure-results``` folder, in HTML format.Thescreenshots are stored seperately under the ```screenshots``` folder.
 
-To generate and launch visual allure reports:
+To generate and launch visual allure reports after execution:
 ```
 npm run post-test
 ```
@@ -113,14 +115,14 @@ npm run post-test
 ### Manual test cases and Bug Report
 A Excel file with manual test cases can be found under the below mentioned directory. This also includes a Bug Report for the issues found in the application.
 ```
-BackbaseAssessment/ManualTests/BackbaseUITests.xlsx
+reports/UITestCases.xlsx
 ```
 ```
-BackbaseAssessment/ManualTests/BugReport.xlsx
+reports/BugReport.xlsx
 ```
 
 ### Test Evaluation Report
 The report is an overall evaluation test report for the application including an overview on the issues, risks, recommendation, etc. It explains why I decided to automate what I have automated, why I decided to test what I have tested, what test strategies I decided to use and why. It can be found under the below directory:
 ```
-BackbaseAssessment/ManualTests/TestEvaluationReport.pdf
+reports/TestEvaluationReport.md
 ```
