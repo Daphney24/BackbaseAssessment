@@ -72,6 +72,24 @@ The Test Plan below indicates the items to be tested, the features to be tested,
       Granular commits done in git
 
 #### Risk Analysis
+
+   Each risk was classified on the basis of following two parameters:
+
+   * The probability of occurrence
+   * The impact on the project
+
+Below table can be used as a refernce to categorize the risk  as High, Medium, and Low or values 3,2, 1
+
+|Level|Probability|
+|:----------------:|:-------------:|
+|High (3)|Has very high probability to occur, may impact to the whole project|
+|Medium (2)|50% chance to occur|
+|Low (1)|Low probability of occurrence|
    
+|Level|Impact|
+|:----------------:|:-------------:|
+|High (3)|Cannot continue with project activity if it is not solved immediately|
+|Medium (2)|Cannot continue the project activity if it is not solved|
+|Low (1)|Low probability of occurrence|
 
 
